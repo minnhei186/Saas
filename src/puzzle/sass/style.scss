@@ -1,0 +1,8 @@
+@use 'reset';
+@use 'variable';
+@use 'mixin';
+
+header {
+  background-color: variable.$navy;
+  @include mixin.box(400px, 100px);
+}
