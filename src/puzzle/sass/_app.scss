@@ -1,0 +1,63 @@
+@use 'utils';
+
+.header {
+  position: relative;
+  background-color: utils.$navy;
+  @include utils.box(400px, 100px);
+
+  &__boxes {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: utils.$white;
+    padding: 10px;
+
+    @each $name in utils.$classNames {
+      $index: index(utils.$classNames, $name);
+      $color: nth(utils.$buttonColor, $index);
+
+      .header__box-#{$name} {
+        background-color: $color;
+        @include utils.box(40px, 40px);
+      }
+    }
+  }
+}
+
+.container {
+  width: 400px;
+}
+
+.main {
+  background-color: utils.$red;
+  @include utils.box(250px, 250px);
+  float: left;
+  padding-top: 40px;
+  padding-left: 40px;
+
+  @each $name in utils.$classNames {
+    $index: index(utils.$classNames, $name);
+    $color: nth(utils.$buttonColor, $index);
+
+    &__box-#{$name} {
+      background-color: $color;
+      @include utils.box(140px, 40px);
+      border: 5px solid utils.$white;
+      margin-bottom: if($index != length(utils.$classNames), 10px, 0);
+    }
+  }
+}
+
+.sidebar {
+  background-color: utils.$green;
+  @include utils.box(150px, 250px);
+  float: left;
+}
+
+.footer {
+  clear: both;
+  background-color: utils.$brown;
+  @include utils.box(400px, 100px);
+}
