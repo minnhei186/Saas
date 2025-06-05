@@ -18,6 +18,7 @@
   @each $name in utils.$classNames {
     $index: index(utils.$classNames, $name);
     $color: nth(utils.$buttonColor, $index);
+
     &__box-#{$name} {
       background-color: $color;
       @include utils.box(40px, 40px);
@@ -39,6 +40,7 @@
   @each $name in utils.$classNames {
     $index: index(utils.$classNames, $name);
     $color: nth(utils.$buttonColor, $index);
+
     &__box-#{$name} {
       background-color: $color;
       @include utils.box(140px, 40px);
