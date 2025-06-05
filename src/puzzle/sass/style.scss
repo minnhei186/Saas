@@ -6,3 +6,23 @@ header {
   background-color: variable.$navy;
   @include mixin.box(400px, 100px);
 }
+
+.container {
+  width: 400px;
+}
+
+main {
+  background-color: variable.$green;
+  @include mixin.box(250px, 250px);
+  float: left;
+}
+
+.sidebar {
+  background-color: variable.$red;
+  @include mixin.box(150px, 250px);
+  float: left;
+}
+
+
+
+
