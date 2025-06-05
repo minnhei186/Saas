@@ -38,15 +38,14 @@ main {
   padding-top: 40px;
   padding-left: 40px;
 
-  $indices: 1, 2, 3;
-  @each $i in $indices {
-    $name: nth(variable.$classNames, $i);
-    $color: nth(variable.$buttonColor, $i);
+   @each $name in variable.$classNames {
+    $index: index(variable.$classNames, $name);
+    $color: nth(variable.$buttonColor, $index);
     .box-#{$name} {
       background-color: $color;
       @include mixin.box(140px, 40px);
       border: 5px solid white;
-      margin-bottom: if($i != 3, 10px, 0); // 最後のボックスだけ margin 無し
+      margin-bottom: if($index != length(variable.$classNames), 10px, 0);
     }
   }
 }
