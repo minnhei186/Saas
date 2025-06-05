@@ -1,11 +1,9 @@
-@use 'reset';
-@use 'variable';
-@use 'mixin';
+@use 'utils';
 
 header {
   position: relative;
-  background-color: variable.$navy;
-  @include mixin.box(400px, 100px);
+  background-color: utils.$navy;
+  @include utils.box(400px, 100px);
 
   .header-boxes {
     display: flex;
@@ -16,12 +14,12 @@ header {
     background-color: white;
     padding: 10px;
 
-    @each $name in variable.$classNames {
-      $index: index(variable.$classNames, $name);
-      $color: nth(variable.$buttonColor, $index);
+    @each $name in utils.$classNames {
+      $index: index(utils.$classNames, $name);
+      $color: nth(utils.$buttonColor, $index);
       .box-#{$name} {
         background-color: $color;
-        @include mixin.box(40px, 40px);
+        @include utils.box(40px, 40px);
       }
     }
   }
@@ -32,32 +30,32 @@ header {
 }
 
 main {
-  background-color: variable.$red;
-  @include mixin.box(250px, 250px);
+  background-color: utils.$red;
+  @include utils.box(250px, 250px);
   float: left;
   padding-top: 40px;
   padding-left: 40px;
 
-   @each $name in variable.$classNames {
-    $index: index(variable.$classNames, $name);
-    $color: nth(variable.$buttonColor, $index);
+  @each $name in utils.$classNames {
+    $index: index(utils.$classNames, $name);
+    $color: nth(utils.$buttonColor, $index);
     .box-#{$name} {
       background-color: $color;
-      @include mixin.box(140px, 40px);
+      @include utils.box(140px, 40px);
       border: 5px solid white;
-      margin-bottom: if($index != length(variable.$classNames), 10px, 0);
+      margin-bottom: if($index != length(utils.$classNames), 10px, 0);
     }
   }
 }
 
 .sidebar {
-  background-color: variable.$green;
-  @include mixin.box(150px, 250px);
+  background-color: utils.$green;
+  @include utils.box(150px, 250px);
   float: left;
 }
 
 footer {
   clear: both;
-  background-color: variable.$brown;
-  @include mixin.box(400px, 100px);
+  background-color: utils.$brown;
+  @include utils.box(400px, 100px);
 }
