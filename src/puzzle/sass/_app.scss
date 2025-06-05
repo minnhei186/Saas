@@ -13,15 +13,15 @@
     right: 20px;
     background-color: utils.$white;
     padding: 10px;
-  }
 
-  @each $name in utils.$classNames {
-    $index: index(utils.$classNames, $name);
-    $color: nth(utils.$buttonColor, $index);
+    @each $name in utils.$classNames {
+      $index: index(utils.$classNames, $name);
+      $color: nth(utils.$buttonColor, $index);
 
-    &__box-#{$name} {
-      background-color: $color;
-      @include utils.box(40px, 40px);
+      .header__box-#{$name} {
+        background-color: $color;
+        @include utils.box(40px, 40px);
+      }
     }
   }
 }
