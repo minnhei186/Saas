@@ -1,11 +1,11 @@
 @use 'utils';
 
-header {
+.header {
   position: relative;
   background-color: utils.$navy;
   @include utils.box(400px, 100px);
 
-  .header-boxes {
+  &__boxes {
     display: flex;
     gap: 10px;
     position: absolute;
@@ -13,14 +13,14 @@ header {
     right: 20px;
     background-color: white;
     padding: 10px;
+  }
 
-    @each $name in utils.$classNames {
-      $index: index(utils.$classNames, $name);
-      $color: nth(utils.$buttonColor, $index);
-      .box-#{$name} {
-        background-color: $color;
-        @include utils.box(40px, 40px);
-      }
+  @each $name in utils.$classNames {
+    $index: index(utils.$classNames, $name);
+    $color: nth(utils.$buttonColor, $index);
+    &__box-#{$name} {
+      background-color: $color;
+      @include utils.box(40px, 40px);
     }
   }
 }
@@ -29,7 +29,7 @@ header {
   width: 400px;
 }
 
-main {
+.main {
   background-color: utils.$red;
   @include utils.box(250px, 250px);
   float: left;
@@ -39,7 +39,7 @@ main {
   @each $name in utils.$classNames {
     $index: index(utils.$classNames, $name);
     $color: nth(utils.$buttonColor, $index);
-    .box-#{$name} {
+    &__box-#{$name} {
       background-color: $color;
       @include utils.box(140px, 40px);
       border: 5px solid white;
@@ -54,7 +54,7 @@ main {
   float: left;
 }
 
-footer {
+.footer {
   clear: both;
   background-color: utils.$brown;
   @include utils.box(400px, 100px);
