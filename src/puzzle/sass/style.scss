@@ -19,8 +19,7 @@ header {
     @each $name in variable.$classNames {
       $index: index(variable.$classNames, $name);
       $color: nth(variable.$buttonColor, $index);
-
-      .box-color-#{$name} {
+      .box-#{$name} {
         background-color: $color;
         @include mixin.box(40px, 40px);
       }
