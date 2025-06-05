@@ -3,8 +3,29 @@
 @use 'mixin';
 
 header {
+  position: relative;
   background-color: variable.$navy;
   @include mixin.box(400px, 100px);
+
+  .header-boxes {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 10px;
+
+    $indices: 1, 2, 3;
+    @each $i in $indices {
+      $name: nth(variable.$classNames, $i);
+      $color: nth(variable.$buttonColor, $i);
+      .box-#{$name} {
+        background-color: $color;
+        @include mixin.box(40px, 40px);
+      }
+    }
+  }
 }
 
 .container {
